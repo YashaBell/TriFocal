@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 2f)]
     public float airMultiplier = .5f;
     private bool isGrounded;
+    public float groundDrag;
 
     private float Offset = 0.5f;
 
@@ -153,6 +154,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+        if (isGrounded)
+        {
+            rb.drag = groundDrag;
+        }
+        else
+        {
+            rb.drag = 0;
         }
     }
 
